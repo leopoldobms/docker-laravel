@@ -23,8 +23,19 @@ class clientRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
+            'phone' => 'required',
             'document' => 'required',
             'address' => 'required',
+        ];
+    }
+
+    public function messages()
+{
+        return [
+            'name.required' => 'Um nome é requirido.',
+            'phone.required' => 'Um phone é requirido.',
+            'document.required' => 'Um documento é requirido.',
+            'address.required' => 'Um endereço é requirido.',
         ];
     }
 }

@@ -19,5 +19,6 @@ use App\Http\Controllers\clientController;
 //     return $request->user();
 // });
 
-Route::get('/', ([clientController::class, 'consult']))->name('consult'); //consulta clientes banco
-Route::post('/create', ([clientController::class, 'create']))->name('create'); //criar clientes banco
+Route::get('client/', ([clientController::class, 'consult']))->name('consult'); //consulta clientes banco
+Route::post('client/create', ([clientController::class, 'create']))->name('create'); //criar clientes banco
+Route::post('client/{id}/update', ([clientController::class, 'update']))->name('update'); //atualizar cliente pelo id no banco
