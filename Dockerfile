@@ -2,7 +2,7 @@ FROM php:8.1-fpm-alpine
 
 WORKDIR /var/www/html
 
-ADD https://raw.githubusercontent.com/leopoldobms/docker-laravel/main/php-extensions /usr/local/bin/
+ADD https://raw.githubusercontent.com/leopoldobms/docker-laravel/main/install-php-extensions /usr/local/bin/
 
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
     install-php-extensions pdo pdo_mysql gd zip exif
