@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('client/', ([clientController::class, 'consult']))->name('consult'); //consulta clientes banco
+Route::get('create/', ([createController::class, 'index']))->name('create'); //criar clientes banco
+Route::post('client/{id}/update', ([clientController::class, 'update']))->name('update'); //atualizar cliente pelo id no banco

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\clientController;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,15 @@ use App\Http\Controllers\clientController;
 //     return $request->user();
 // });
 
-Route::get('client/', ([clientController::class, 'consult']))->name('consult'); //consulta clientes banco
-Route::post('client/create', ([clientController::class, 'create']))->name('create'); //criar clientes banco
-Route::post('client/{id}/update', ([clientController::class, 'update']))->name('update'); //atualizar cliente pelo id no banco
+// Route::post('client/create1/', function () {
+//   dd(DB::select('select * from client'));
+//   return view('welcome');
+// });
+
+Route::get('client/consult/{id}', ([clientController::class, 'consult']))->name('client.consult'); //consult clientes banco
+
+Route::post('client/create/', ([clientController::class, 'create']))->name('client.create'); //create clientes banco
+
+Route::post('client/update/{id}', ([clientController::class, 'update']))->name('client.update'); //update clientes banco
+
+Route::post('client/delete/{id}', ([clientController::class, 'delete']))->name('delete'); //delete cliente pelo id no banco
